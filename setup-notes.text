@@ -1,0 +1,11 @@
+Keep installs contained for easier collaborations with env
+Make sure to create the env:
+    - virtualenv env
+Then activate it:
+    - source env/bin/activate
+Once activated, go into the env and install dependencies
+    - env
+    - pip3 install flask flask-sqlalchemy
+
+Set up app.py
+
