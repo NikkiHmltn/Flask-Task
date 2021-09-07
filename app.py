@@ -50,6 +50,18 @@ def index():
     #renders the index.html template in imported folder
         return render_template('index.html', tasks=tasks)
 
+#set up delete route with brackets and specify the unique data and its type. this case is unique integer called id
+@app.route("/delete/<int:id>")
+def delete(id):
+    task_delete = Todo.query.get_or_404(id)
+
+    try: 
+        db.session.delete(task_delete)
+        db.session.commit()
+        return redirect('/')
+    except: 
+        return 'There was a problem deleting the task'
+
 #if we have errors show them
 if __name__ == '__main__':
     app.run(debug=True)
