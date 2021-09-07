@@ -15,5 +15,6 @@ TEMPLATE INHERITANCE:
     -create 1 master html that is the bones of all the pages
     -inhert that html page for all the pages to simply just add content and not repeat boilerplates
 
+  the {{  }} is used for strings while {% is used for code like blocks, loops, etc %}
 
 
