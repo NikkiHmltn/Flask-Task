@@ -7,5 +7,13 @@ Once activated, go into the env and install dependencies
     - env
     - pip3 install flask flask-sqlalchemy
 
-Set up app.py
+Set up app.py with basic index route
+
+Set up static and template folders with index.html
+
+TEMPLATE INHERITANCE:
+    -create 1 master html that is the bones of all the pages
+    -inhert that html page for all the pages to simply just add content and not repeat boilerplates
+
+
 
