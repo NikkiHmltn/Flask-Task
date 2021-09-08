@@ -1,4 +1,5 @@
 # import flask and render the template folder
+import re
 from flask import Flask, render_template, url_for, request, redirect
 #import sql-alchemy
 from flask_sqlalchemy import SQLAlchemy
@@ -61,6 +62,21 @@ def delete(id):
         return redirect('/')
     except: 
         return 'There was a problem deleting the task'
+
+#set up update route
+@app.route("/update/<int:id>", methods=["POST", 'GET'])
+def update(id):
+    task = Todo.query.get_or_404(id)
+    if request.method == 'POST': 
+        #set current task content to form content box
+        task.content = request.form['content']
+        try: 
+            db.session.commit()
+            return redirect('/')
+        except: 
+            return "There was an issue updating your task"
+    else: 
+        return render_template('update.html', task=task)
 
 #if we have errors show them
 if __name__ == '__main__':
